@@ -1,31 +1,33 @@
 <?php
-use App\Classes\CitrusDOMLoad as CLoad;
-use App\Classes\CitrusGoodsParser as Parser;
+
+//use App\Classes\CitrusDOMLoad as CLoad;
+//use App\Classes\CitrusGoodsParser as Parser;
+
+use App\Classes\CitrusDOMLoader;
+use \DiDom\Document;
+use \DiDom\Query;
 
 require_once "../vendor/autoload.php";
-require_once "../errorHandler.php";
+//require_once "../src/errorHandler.php";
 
-//try {
-//    $xpath = new CLoad("https://www.ctrs.com.ua/fitnes-trekery-160/");
-//    $xpath = $xpath->getPath();
-//    $parse = new Parser();
-//}catch (Exception){
-//    echo "Failed connect URL, or doesnt match: 'https://www.ctrs.com.ua/{category}/'".PHP_EOL;
-//    die;
+$urls = [
+    'https://www.ctrs.com.ua/fitnes-trekery-160/',
+    'https://www.ctrs.com.ua/naushniki/',
+    'https://www.ctrs.com.ua/smartfony/'
+    ];
+
+$document = new CitrusDOMLoader($urls, true);
+$images = $document->find("img[src*='shop']");
+$links = $document->find("a.break-word::attr(href)");
+$prices = $document->find("div[class*='productCardCategory']");
+$names = $document->find("a.break-word::text");
+
+$items = [$names, $price, $links, $images];
+print_r($items);
+
+//$price = $document->find("div[data-price]::text()");
+//foreach ($prices as $price){
+//    $p[] = $price->find("div[data-price]::text()");
 //}
-//
-//$images = $xpath->query("//div[contains(@class,'productCardCategory')]//img[contains(@src,'shop')]/@src");
-//$links = $xpath->query("//div[contains(@class,'productCardCategory')]//a[contains(@class,'break-word')]/@href");
-//$prices = $xpath->query("//div[contains(@class,'productCardCategory')]//div[contains(@class,'medium fz16'),text()]");
-//$names = $xpath->query("//div[contains(@class,'productCardCategory')]//a[contains(@class,'break-word')]");
-
-//$img = $parse->getData($images, "IMG");
-//$lnk = $parse->getData($links, "LINK");
-//$prcs = $parse->getData($prices, "PRICE");
-//$nms = $parse->getData($names, "NAME");
-
-
-//echo count($img) . PHP_EOL;
-//echo count($lnk) . PHP_EOL;
-//echo count($prcs) . PHP_EOL;
-//echo count($nms) . PHP_EOL;
+//echo count($p);
+//var_dump($price);
