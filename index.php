@@ -9,15 +9,13 @@ use App\Classes\FitTracker;
 use App\Classes\Headphones;
 use App\Classes\Smartphone;
 
-require_once "../vendor/autoload.php";
+require_once "vendor/autoload.php";
 //require_once "../src/errorHandler.php";
 
 $smartphones = new Smartphone();
 $trackers = new FitTracker();
 $headphones = new Headphones();
-$parser = new Parser();
 
-
+$trackers->writeToCSV();
 $smartphones->writeToCSV();
-
-
+$headphones->writeToCSV();
