@@ -2,7 +2,7 @@
 
 namespace App\Classes;
 
-use App\Classes\CitrusGoodsParser as Parser;
+use App\Classes\DataSortHandler as Handler;
 use DiDom\Document;
 
 class CitrusItem extends Document
@@ -14,13 +14,13 @@ class CitrusItem extends Document
 
     public function writeToCSV()
     {
-        $parser = new Parser();
+        $handler = new Handler();
         $items = $this->getValues();
         $d = date("Y-m-d_H.i.s");
         $f = "items_$d.csv";
         $fp = fopen($f, 'w');
         foreach ($items as $item) {
-            $data = $parser->getData($item);
+            $data = $handler->getData($item);
             $data = mb_convert_encoding($data, 'Windows-1251', 'UTF-8');
             fputcsv($fp, $data, ";","\"", "\n");
         }

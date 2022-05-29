@@ -2,7 +2,7 @@
 
 namespace App\Classes;
 
-class CitrusGoodsParser
+class DataSortHandler
 {
 
     public function getData($query): array

@@ -2,7 +2,7 @@
 
 use DiDom\Document;
 
-use App\Classes\CitrusGoodsParser as Parser;
+use App\Classes\DataSortHandler as Parser;
 
 use App\Classes\CitrusDOMLoader;
 use App\Classes\FitTracker;
