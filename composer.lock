@@ -4,8 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e5b3f773831feca05831ca111e08cb9",
-    "packages": [
+    "content-hash": "09e126d1fccd4ffb670f515ac2ed1fac",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "imangazaliev/didom",
             "version": "2.0",
@@ -59,15 +60,14 @@
             "time": "2022-05-08T01:48:13+00:00"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
+    "platform": [],
+    "platform-dev": {
         "ext-dom": "*"
     },
-    "platform-dev": [],
     "plugin-api-version": "2.3.0"
 }

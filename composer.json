@@ -1,5 +1,5 @@
 {
-    "name": "admin/test.parser.com",
+    "name": "alexangel102/test",
     "autoload": {
         "psr-4": {
             "App\\": "src/"
@@ -11,8 +11,8 @@
             "email": "alexangel102@gmail.com"
         }
     ],
-    "require" : {
-      "ext-dom": "*",
+    "require-dev": {
+        "ext-dom": "*",
         "imangazaliev/didom": "^2.0"
     }
 }
