@@ -10,12 +10,21 @@ use App\Classes\Headphones;
 use App\Classes\Smartphone;
 
 require_once "vendor/autoload.php";
-//require_once "../src/errorHandler.php";
 
-$smartphones = new Smartphone();
-$trackers = new FitTracker();
-$headphones = new Headphones();
+libxml_use_internal_errors(true);
 
-$trackers->writeToCSV();
-$smartphones->writeToCSV();
-$headphones->writeToCSV();
+try {
+    $smartphones = new Smartphone();
+    $trackers = new FitTracker();
+    $headphones = new Headphones();
+} catch (Error|Exception $e) {
+    die("Cann't connect to source. Error:" . $e->getLine());
+}
+
+try {
+    $trackers->writeToCSV();
+    $smartphones->writeToCSV();
+    $headphones->writeToCSV();
+} catch (Error|Exception $e) {
+    die("Cann't parse or create file. Error:" . $e->getLine());
+}
