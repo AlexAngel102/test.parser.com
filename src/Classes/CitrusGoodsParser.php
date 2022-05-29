@@ -2,29 +2,19 @@
 
 namespace App\Classes;
 
-use DOMNodeList;
-
 class CitrusGoodsParser
 {
 
-    public function getData(DOMNodeList $query, string $type): array
+    public function getData($query): array
     {
-        $regex = '/(.html)$/';
-        $i = 0;
-        var_dump($query);
+        $regexHTML = '/(.html)$/';
 
         foreach ($query as $item) {
-//            echo $item->nodeValue;
-            if (!isset($item)) {
-                $result["$type$i"] = "0" . PHP_EOL;
-            }
-            if (preg_match($regex, $item->nodeValue)) {
-                $result["$type$i"] = htmlspecialchars("https://www.ctrs.com.ua" . $item->nodeValue . PHP_EOL);
-                $i++;
+            if (preg_match($regexHTML, $item)) {
+                $result[] = "https://www.ctrs.com.ua" . $item . PHP_EOL;
                 continue;
             }
-            $result["$type$i"] = htmlspecialchars($item->nodeValue . PHP_EOL);
-            $i++;
+            $result[] = $item . PHP_EOL;
         }
         return $result;
     }
