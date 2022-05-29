@@ -1,18 +1,20 @@
 {
-    "name": "alexangel102/test",
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Aleksandr Petrik",
-            "email": "alexangel102@gmail.com"
-        }
-    ],
-    "require": {
-        "ext-dom": "*",
-        "imangazaliev/didom": "^2.0"
+  "name": "alexangel102/test",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
     }
-}
+  },
+  "authors": [
+    {
+      "name": "Aleksandr Petrik",
+      "email": "alexangel102@gmail.com"
+    }
+  ],
+  "require": {
+    "require": {
+      "php": ">=8.0",
+      "ext-dom": "*",
+      "imangazaliev/didom": "^2.0"
+    }
+  }
