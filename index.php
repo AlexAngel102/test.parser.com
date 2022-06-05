@@ -1,9 +1,6 @@
 <?php
 
 use App\Classes\CSVWriter;
-use DiDom\Document;
-
-use App\Classes\DataSortHandler as Parser;
 
 use App\Classes\CitrusDOMLoader;
 use App\Classes\FitTracker;
