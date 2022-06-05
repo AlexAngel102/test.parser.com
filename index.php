@@ -1,5 +1,6 @@
 <?php
 
+use App\Classes\CSVWriter;
 use DiDom\Document;
 
 use App\Classes\DataSortHandler as Parser;
@@ -17,14 +18,19 @@ try {
     $smartphones = new Smartphone();
     $trackers = new FitTracker();
     $headphones = new Headphones();
+    $write = new CSVWriter();
 } catch (Error|Exception $e) {
     die("Cann't connect to source. Error:" . $e->getLine());
 }
 
 try {
-    $trackers->writeToCSV();
-    $smartphones->writeToCSV();
-    $headphones->writeToCSV();
+    $write->writeToCSV($smartphones, "Smartphones");
+    $write->writeToCSV($headphones, "Headphones");
+    $write->writeToCSV($trackers, "Trackers");
 } catch (Error|Exception $e) {
     die("Cann't parse or create file. Error:" . $e->getLine());
 }
+
+
+
+
